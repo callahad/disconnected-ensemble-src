@@ -12,11 +12,13 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var watch = require('gulp-watch');
 var batch = require('gulp-batch');
+var zip = require('gulp-zip');
 
 var appDst = path.join(__dirname, 'build/');
 var appSrc = path.join(__dirname, 'src');
 var wwwSrc = path.join(appSrc, 'www');
 var wwwDst = path.join(appDst, 'www');
+var zipDst = path.join(__dirname, 'dist');
 
 gulp.task('lint', function() {
   return gulp.src('src/js/**/*.js')
@@ -24,7 +26,7 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('build', ['build-app', 'build-www']);
+gulp.task('build', ['build-app', 'build-www', 'build-zip']);
 
 gulp.task('build-app', ['build-app-static', 'build-app-js']);
 
@@ -65,6 +67,12 @@ gulp.task('build-www-js', function() {
 		.pipe(rename('bundle.js'))
 		.pipe(gulp.dest(wwwDst));
 });
+
+gulp.task('build-zip', function() {
+	return gulp.src('build/**/*')
+		.pipe(zip('disconnected-ensemble.zip'))
+		.pipe(gulp.dest(zipDst));
+})
 
 gulp.task('default', [ 'build', 'watch' ]);
 

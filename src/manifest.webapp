@@ -1,5 +1,5 @@
 {
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"name": "disconnected ensemble",
 	"description": "tadaaaa",
 	"launch_path": "/index.html",
@@ -17,6 +17,7 @@
 		"url": "http://soledadpenades.com"
 	},
 	"type": "certified",
+	"package_path": "https://callahad.github.io/disconnected-ensemble-src/dist/disconnected-ensemble.zip",
 	"permissions": {
 		"wifi-manage": {
 			"description": "show current ip etc"

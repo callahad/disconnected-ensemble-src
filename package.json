@@ -38,5 +38,8 @@
     "openmusic-theremin-ui": "^2.4.1",
     "openmusic-transport": "^1.0.0",
     "webcomponents-lite": "^0.6.0"
+  },
+  "devDependencies": {
+    "gulp-zip": "^3.0.2"
   }
 }
